@@ -33,6 +33,7 @@ class ImageList(MutableSequence):
         self._images = list(iterable)
         self._hash_dict = {}
         self._changed = True
+        self._deleted = False
 
     def __len__(self):
         return len(self._images)
@@ -46,6 +47,8 @@ class ImageList(MutableSequence):
 
     def __delitem__(self, index):
         del self._images[index]
+        if len(self._images) == 0:
+            self._deleted = True
         self._changed = True
 
     def insert(self, index, value):
@@ -101,6 +104,9 @@ class ImageList(MutableSequence):
             self._changed = False
         return self._hash_dict
 
+    @property
+    def deleted(self):
+        return self._deleted
 
 class ImageListState:
     def __init__(self):
