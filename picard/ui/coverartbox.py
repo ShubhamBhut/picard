@@ -349,9 +349,14 @@ class CoverArtThumbnail(ActiveLabel):
 
 
 def set_image_replace(obj, coverartimage):
-    obj.metadata.images.strip_front_images()
-    obj.metadata.images.append(coverartimage)
-    obj.metadata_images_changed.emit()
+    coverartimage_dimensions = coverartimage.width * coverartimage.height
+    existingimage_dimensions = obj.metadata.images[0].width * obj.metadata.images[0].height
+    if get_config().setting['dont_replace_with_smaller_image'] & (coverartimage_dimensions < existingimage_dimensions):
+        pass
+    else:
+        obj.metadata.images.strip_front_images()
+        obj.metadata.images.append(coverartimage)
+        obj.metadata_images_changed.emit()
 
 
 def set_image_append(obj, coverartimage):

@@ -88,6 +88,9 @@ class Ui_CoverOptionsPage(object):
         self.verticalLayout.addWidget(self.ca_providers_groupbox, 0, QtCore.Qt.AlignmentFlag.AlignTop)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
+        self.dont_replace_smaller_image = QtWidgets.QCheckBox(CoverOptionsPage)
+        self.dont_replace_smaller_image.setObjectName("dont_replace_smaller_image")
+        self.verticalLayout.addWidget(self.dont_replace_smaller_image) 
 
         self.retranslateUi(CoverOptionsPage)
         QtCore.QMetaObject.connectSlotsByName(CoverOptionsPage)
@@ -96,6 +99,7 @@ class Ui_CoverOptionsPage(object):
         _translate = QtCore.QCoreApplication.translate
         self.save_images_to_tags.setTitle(_("Embed cover images into tags"))
         self.cb_embed_front_only.setText(_("Embed only a single front image"))
+        self.dont_replace_with_smaller_image.setText(_("Don't replace with smaller image"))
         self.save_images_to_files.setTitle(_("Save cover images as separate files"))
         self.label_use_filename.setText(_("Use the following file name for images:"))
         self.save_images_overwrite.setText(_("Overwrite the file if it already exists"))

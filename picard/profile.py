@@ -140,6 +140,7 @@ class UserProfileGroups():
         'settings': [
             SettingDesc('save_images_to_tags', N_("Embed cover images into tags"), ['save_images_to_tags']),
             SettingDesc('embed_only_one_front_image', N_("Embed only a single front image"), ['cb_embed_front_only']),
+            SettingDesc('dont_replace_with_smaller_image', N_("Don't replace with smaller image"), ['dont_replace_with_smaller_image']),
             SettingDesc('save_images_to_files', N_("Save cover images as separate files"), ['save_images_to_files']),
             SettingDesc('cover_image_filename', N_("File name for images"), ['cover_image_filename']),
             SettingDesc('save_images_overwrite', N_("Overwrite existing image files"), ['save_images_overwrite']),
